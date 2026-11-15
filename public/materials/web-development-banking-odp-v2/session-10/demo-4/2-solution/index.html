@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 4: Dynamic History UI (Solution)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; line-height: 1.5; color: #1e293b; }
+    .history-container { margin-top: 1rem; padding: 1.25rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; }
+    .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+    .history-header h3 { margin: 0; font-size: 1rem; color: #1d3d70; }
+    .history-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .btn-city { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem; }
+    .btn-city:hover { background: #bae6fd; }
+    .btn-clear { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; padding: 0.35rem 0.7rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .btn-clear:hover { background: #fecaca; }
+    .info-log { margin-top: 1rem; font-family: monospace; font-size: 0.85rem; color: #64748b; background: white; padding: 0.75rem; border-radius: 6px; border: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+  <h1>Riwayat Pencarian Kota</h1>
+
+  <div class="history-container">
+    <div class="history-header">
+      <h3>Kota Terakhir Dicari (Maks. 5)</h3>
+      <button id="hapusRiwayat" class="btn-clear">Hapus Semua</button>
+    </div>
+    <div id="riwayatKota" class="history-list"></div>
+  </div>
+
+  <div id="logInfo" class="info-log">Status: Menunggu interaksi...</div>
+</body>
+</html>

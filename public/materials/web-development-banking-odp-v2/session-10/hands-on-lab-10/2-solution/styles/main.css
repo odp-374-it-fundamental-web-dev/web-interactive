@@ -1,0 +1,176 @@
+/**
+ * Stylesheet: Weather Web App (Milestone 4 Solution)
+ */
+:root {
+  --primary-navy: #1d3d70;
+  --accent-orange: #f06634;
+  --bg-slate: #f8fafc;
+  --border-slate: #cbd5e1;
+  --text-dark: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 2rem 1rem;
+  line-height: 1.5;
+}
+
+.weather-container {
+  max-width: 580px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--border-slate);
+}
+
+h1 {
+  color: var(--primary-navy);
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-kota {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--border-slate);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.input-kota:focus {
+  outline: none;
+  border-color: var(--primary-navy);
+}
+
+.btn-search {
+  background-color: var(--primary-navy);
+  color: white;
+  padding: 0.7rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-search:hover:not(:disabled) {
+  background-color: #152d53;
+}
+
+.btn-search:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#status {
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+.weather-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  border-left: 4px solid var(--accent-orange);
+}
+
+.history-section {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #f8fafc;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.history-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--primary-navy);
+}
+
+.btn-clear {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-clear:hover {
+  background: #fecaca;
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-city {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-city:hover {
+  background: #bae6fd;
+}
+
+.attribution {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-align: center;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+}
+
+.attribution a {
+  color: #64748b;
+  text-decoration: underline;
+}

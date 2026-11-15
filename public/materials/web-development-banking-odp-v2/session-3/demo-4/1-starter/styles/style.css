@@ -1,0 +1,45 @@
+/* styles/style.css - CSS Grid Starter */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 24px;
+  color: #183153;
+  background-color: #F8FAFC;
+}
+
+/* 
+  TODO 1: Konfigurasi .grid-container sebagai CSS Grid
+  - display: grid;
+  - grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  - gap: 20px;
+*/
+.grid-container {
+  margin-top: 20px;
+}
+
+/* 
+  TODO 2: Hiasi setiap .card
+  - background-color: #FFFFFF;
+  - padding: 20px;
+  - border: 1px solid #CBD5E1;
+  - border-radius: 8px;
+*/
+.card {
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-top: 0;
+  color: #F05A22;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4A5568;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validasi Form HTML5 - BNI ODP IT</title>
+</head>
+<body>
+  <h1>Formulir Bantuan Teknis Layanan IT</h1>
+
+  <form action="#" method="POST">
+    <div>
+      <label for="namaPengirim">Nama Lengkap:</label><br>
+      <input type="text" id="namaPengirim" name="nama_pengirim" required minlength="3" placeholder="Nama lengkap Anda">
+    </div>
+
+    <br>
+
+    <div>
+      <label for="emailPengirim">Email Resmi:</label><br>
+      <input type="email" id="emailPengirim" name="email_pengirim" required placeholder="nama@bni.co.id">
+    </div>
+
+    <br>
+
+    <div>
+      <label for="topikLayanan">Topik Permintaan:</label><br>
+      <select id="topikLayanan" name="topik_layanan" required>
+        <option value="">-- Pilih Topik Layanan --</option>
+        <option value="akun">Akses Portal &amp; Akun Trainee</option>
+        <option value="jaringan">Jaringan VPN Internal</option>
+        <option value="fasilitas">Fasilitas Lab &amp; Hardware</option>
+      </select>
+    </div>
+
+    <br>
+
+    <fieldset>
+      <legend>Kategori Penanya</legend>
+      <input type="radio" id="katInternal" name="kategori_penanya" value="internal" checked>
+      <label for="katInternal">Internal Trainee</label>
+      &nbsp;&nbsp;
+      <input type="radio" id="katEksternal" name="kategori_penanya" value="eksternal">
+      <label for="katEksternal">Mitra Rekanan</label>
+    </fieldset>
+
+    <br>
+
+    <div>
+      <label for="isiPesan">Deskripsi Permintaan (Minimal 10 Karakter):</label><br>
+      <textarea id="isiPesan" name="isi_pesan" rows="4" cols="45" required minlength="10" placeholder="Tuliskan kendala teknis Anda secara rinci..."></textarea>
+    </div>
+
+    <br>
+
+    <button type="submit">Kirim Tiket Permintaan</button>
+  </form>
+</body>
+</html>

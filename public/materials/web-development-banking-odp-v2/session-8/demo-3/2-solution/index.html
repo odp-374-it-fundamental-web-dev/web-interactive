@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 3: Event Listeners & Event Object (Solution)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; text-align: center; }
+    .counter-display { font-size: 3.5rem; font-weight: 800; margin: 1.5rem 0; color: #1d3d70; }
+    button { padding: 0.6rem 1.2rem; font-size: 0.95rem; border-radius: 6px; cursor: pointer; margin: 0.25rem; border: none; font-weight: 600; }
+    #btnTambah { background: #f06634; color: white; }
+    #btnLepas { background: #64748b; color: white; }
+    .log-box { margin-top: 1.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 1rem; text-align: left; font-family: monospace; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <h1>Counter Transaksi Teller</h1>
+  <div class="counter-display" id="displayHitungan">0</div>
+
+  <div>
+    <button id="btnTambah">Tambah Antrean (+1)</button>
+    <button id="btnLepas">Lepas Event Listener</button>
+  </div>
+
+  <div class="log-box" id="logInfo">Status: Listener aktif. Silakan klik tombol tambah.</div>
+</body>
+</html>

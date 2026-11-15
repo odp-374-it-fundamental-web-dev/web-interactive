@@ -1,0 +1,71 @@
+/* styles/custom.css - Solusi Mobile-First Custom Overrides */
+
+:root {
+  --bni-navy: #183153;
+  --bni-orange: #F05A22;
+  --bni-orange-hover: #D94814;
+}
+
+.text-navy {
+  color: var(--bni-navy) !important;
+}
+
+.text-orange {
+  color: var(--bni-orange) !important;
+}
+
+.bg-navy {
+  background-color: var(--bni-navy) !important;
+}
+
+/* 1. Mobile-First Layout: Default Layar Smartphone (< 768px) */
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-avatar img {
+  border-radius: 50%;
+  border: 3px solid var(--bni-navy);
+}
+
+/* 2. Tablet & Desktop Breakpoint (>= 768px) */
+@media (min-width: 768px) {
+  .hero-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+}
+
+/* 3. Override Tombol Bootstrap Primary dengan Palet Oranye BNI */
+.btn-primary {
+  background-color: var(--bni-orange);
+  border-color: var(--bni-orange);
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--bni-orange-hover);
+  border-color: var(--bni-orange-hover);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--bni-navy);
+  outline-offset: 2px;
+}
+
+/* 4. Kartu Modul Border Accent */
+.module-card {
+  border-top: 4px solid var(--bni-navy) !important;
+  transition: transform 0.2s ease, border-top-color 0.2s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-2px);
+  border-top-color: var(--bni-orange) !important;
+}

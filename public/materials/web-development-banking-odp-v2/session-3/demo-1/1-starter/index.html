@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Sintaks & Specificity CSS - BNI ODP IT</title>
+
+  <!-- TODO 1: Hubungkan berkas styles/style.css menggunakan <link rel="stylesheet"> -->
+
+  <!-- TODO 2: Pindahkan aturan internal style di bawah ke dalam styles/style.css -->
+  <style>
+    h1 {
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <!-- TODO 3: Hapus inline style color: red di bawah dan gunakan kelas .title-primary -->
+  <h1 style="color: red;">Portal Informasi Layanan Digital</h1>
+
+  <nav>
+    <a href="#fitur">Fitur Utama</a>
+    <a href="#keamanan" class="highlight">Standar Keamanan</a>
+  </nav>
+
+  <section id="fitur">
+    <h2>Layanan Unggulan</h2>
+    <p>
+      Infrastruktur perbankan digital mengintegrasikan pemrosesan transaksi real-time dengan keandalan tinggi.
+    </p>
+  </section>
+
+  <section id="keamanan">
+    <h2>Keamanan Data</h2>
+    <p class="highlight">
+      Data transaksi dan identitas nasabah dilindungi dengan enkripsi tingkat tinggi sesuai regulasi Bank Indonesia dan OJK.
+    </p>
+  </section>
+</body>
+</html>

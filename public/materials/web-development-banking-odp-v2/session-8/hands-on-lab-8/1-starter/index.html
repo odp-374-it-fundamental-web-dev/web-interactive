@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hands-on Lab 8: Portal Transaksi & Milestone 2 (Starter)</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- Pemuatan skrip eksternal dengan defer menjamin DOM sudah siap dieksekusi -->
+  <script src="scripts/app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Portal Transaksi & Katalog BNI ODP</h1>
+      <p>Modul interaksi DOM, validasi form, dan pencarian real-time.</p>
+    </header>
+
+    <!-- SECTION 1: FORM TRANSAKSI -->
+    <section class="card">
+      <h2>Catat Transaksi Finansial</h2>
+      <form id="formTransaksi" novalidate>
+        <div class="form-group">
+          <label for="nama">Nama Transaksi</label>
+          <input id="nama" name="nama" type="text" placeholder="Contoh: Setoran Latihan" required>
+        </div>
+
+        <div class="form-group">
+          <label for="nominal">Nominal (IDR)</label>
+          <input id="nominal" name="nominal" type="number" placeholder="Contoh: 50000" required>
+        </div>
+
+        <button type="submit" class="btn-primary">Tambahkan Transaksi</button>
+        <p id="pesan" role="status" aria-live="polite"></p>
+      </form>
+
+      <h3>Daftar Transaksi Kas</h3>
+      <ul id="daftarTransaksi" class="item-list"></ul>
+    </section>
+
+    <!-- SECTION 2: MILESTONE 2 - PENCARIAN PELATIHAN REAL-TIME -->
+    <section class="card">
+      <h2>Milestone 2: Pencarian Pelatihan Real-Time</h2>
+      <div class="form-group">
+        <label for="cari">Cari Pelatihan</label>
+        <input id="cari" type="text" placeholder="Ketik nama atau kategori pelatihan...">
+      </div>
+
+      <h3>Hasil Katalog</h3>
+      <ul id="hasil" class="item-list"></ul>
+    </section>
+  </div>
+</body>
+</html>

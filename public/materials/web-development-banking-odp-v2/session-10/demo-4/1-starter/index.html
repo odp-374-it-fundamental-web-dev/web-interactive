@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 4: Dynamic History UI (Starter)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; }
+    .history-container { margin-top: 1rem; padding: 1rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; }
+    .history-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
+    button { padding: 0.4rem 0.8rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Riwayat Pencarian Kota</h1>
+  <div class="history-container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3>Kota Terakhir Dicari</h3>
+      <button id="hapusRiwayat">Hapus Semua</button>
+    </div>
+    <div id="riwayatKota" class="history-list"></div>
+  </div>
+</body>
+</html>

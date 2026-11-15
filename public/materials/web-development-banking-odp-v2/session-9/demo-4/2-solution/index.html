@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 4: UI State Machine (Solution)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; line-height: 1.5; color: #1e293b; }
+    .status-box { padding: 0.75rem 1rem; border-radius: 6px; font-weight: 600; margin: 1rem 0; font-size: 0.95rem; }
+    .state-loading { background: #e0f2fe; color: #0369a1; }
+    .state-success { background: #dcfce7; color: #166534; }
+    .state-empty { background: #fef9c3; color: #854d0e; }
+    .state-error { background: #fee2e2; color: #991b1b; }
+    .state-ready { background: #f1f5f9; color: #475569; }
+    button { padding: 0.6rem 1.2rem; font-size: 1rem; border-radius: 6px; border: none; background: #1d3d70; color: white; font-weight: 600; cursor: pointer; }
+    button:hover:not(:disabled) { background: #152d53; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .card { background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Simulasi State UI Asinkron</h1>
+  
+  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+    <button id="btnSuccess">Simulasi Sukses</button>
+    <button id="btnEmpty">Simulasi Kosong</button>
+    <button id="btnError">Simulasi Error</button>
+  </div>
+
+  <p id="status" class="status-box state-ready" role="status" aria-live="polite">Siap menerima instruksi.</p>
+  <div id="hasil"></div>
+</body>
+</html>

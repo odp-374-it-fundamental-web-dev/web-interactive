@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validasi Form HTML5 - BNI ODP IT</title>
+</head>
+<body>
+  <h1>Formulir Bantuan Teknis Layanan IT</h1>
+
+  <form action="#" method="POST">
+    <div>
+      <label for="namaPengirim">Nama Lengkap:</label><br>
+      <!-- TODO 1: Tambahkan required dan minlength="3" -->
+      <input type="text" id="namaPengirim" name="nama_pengirim">
+    </div>
+
+    <br>
+
+    <div>
+      <label for="emailPengirim">Email Resmi:</label><br>
+      <!-- TODO 2: Tambahkan required -->
+      <input type="email" id="emailPengirim" name="email_pengirim">
+    </div>
+
+    <br>
+
+    <div>
+      <label for="topikLayanan">Topik Permintaan:</label><br>
+      <!-- 
+        TODO 3: Buat select id="topikLayanan" name="topik_layanan" required
+        Sertakan opsi:
+        1. value="" -> -- Pilih Topik Layanan --
+        2. value="akun" -> Akses Portal & Akun Trainee
+        3. value="jaringan" -> Jaringan VPN Internal
+        4. value="fasilitas" -> Fasilitas Lab & Hardware
+      -->
+      <select id="topikLayanan" name="topik_layanan">
+        <option value="akun">Akses Portal & Akun Trainee</option>
+      </select>
+    </div>
+
+    <br>
+
+    <fieldset>
+      <legend>Kategori Penanya</legend>
+      <!-- 
+        TODO 4: Buat dua input radio dengan name="kategori_penanya" yang sama.
+        Satu untuk id="katInternal" value="internal" (default checked)
+        Satu untuk id="katEksternal" value="eksternal"
+      -->
+      <input type="radio" id="katInternal" value="internal">
+      <label for="katInternal">Internal Trainee</label>
+      <input type="radio" id="katEksternal" value="eksternal">
+      <label for="katEksternal">Mitra Rekanan</label>
+    </fieldset>
+
+    <br>
+
+    <div>
+      <label for="isiPesan">Deskripsi Permintaan (Minimal 10 Karakter):</label><br>
+      <!-- 
+        TODO 5: Buat textarea id="isiPesan" name="isi_pesan" rows="4" cols="40"
+        Tambahkan required dan minlength="10"
+      -->
+      <textarea id="isiPesan" name="isi_pesan"></textarea>
+    </div>
+
+    <br>
+
+    <button type="submit">Kirim Tiket Permintaan</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Environment & Secret Files (KRITIS: Jangan diunggah ke Git)
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Dependencies
+node_modules/
+
+# Operating System Caches
+.DS_Store
+Thumbs.db
+
+# Editor & IDE settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/

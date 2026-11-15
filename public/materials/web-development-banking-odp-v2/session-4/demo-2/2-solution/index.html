@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solusi Komponen Bootstrap - BNI ODP IT</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+  <!-- 1. Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">BNI ODP IT Portal</a>
+      <div class="collapse navbar-collapse show" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#dashboard">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="#transaksi">Transaksi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pengaturan">Pengaturan</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <!-- 2. Bootstrap Alert Banner -->
+    <div class="alert alert-info border-start border-4 border-info shadow-sm" role="status">
+      <strong>Info Pemeliharaan:</strong> Sistem kliring BI-FAST beroperasi normal 24/7 dengan ketersediaan 99.98%.
+    </div>
+
+    <!-- 3. Bootstrap Card -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-light fw-semibold text-secondary">
+        Rekening Operasional Trainee
+      </div>
+      <div class="card-body">
+        <h3 class="card-title text-primary fw-bold">IDR 25.000.000</h3>
+        <p class="card-text text-muted">
+          Saldo aktif untuk simulasi transaksi modul perbankan digital. Seluruh data transaksi bersifat sintetis.
+        </p>
+        <button class="btn btn-outline-primary">Lihat Mutasi Rekening</button>
+      </div>
+    </div>
+
+    <!-- 4. Bootstrap Form Controls -->
+    <div class="card shadow-sm p-4">
+      <h4 class="mb-3 text-dark">Simulasi Transfer Dana</h4>
+      <form action="#" method="POST">
+        <div class="mb-3">
+          <label for="nominalTrx" class="form-label fw-semibold">Nominal Simulasi Transfer (IDR):</label>
+          <input type="number" id="nominalTrx" name="nominal" class="form-control" placeholder="Contoh: 500000" required>
+        </div>
+        <button type="submit" class="btn btn-primary px-4">Proses Transfer</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

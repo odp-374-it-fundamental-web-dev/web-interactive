@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 4: Race Condition Guard (Starter)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; }
+    button { padding: 0.6rem 1.2rem; cursor: pointer; }
+    .log-box { margin-top: 1rem; padding: 1rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; font-family: monospace; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <h1>Simulasi Race Condition</h1>
+  <p>Klik tombol di bawah ini berkali-kali secara cepat untuk melihat request bertumpuk tanpa guard.</p>
+
+  <button id="btnSpam">Kirim Request Transfer</button>
+  <div id="logArea" class="log-box">Log aktivitas...</div>
+</body>
+</html>

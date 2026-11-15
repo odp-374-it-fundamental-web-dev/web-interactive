@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Web App — Capstone Mini Project (Solution)</title>
+  <!-- Jalur relatif untuk kesiapan GitHub Pages subpath -->
+  <link rel="stylesheet" href="./styles/main.css">
+  <!-- Pemuatan skrip asinkron modular terstruktur -->
+  <script src="./scripts/forecast-helper.js" defer></script>
+  <script src="./scripts/next-history.js" defer></script>
+  <script src="./scripts/app.js" defer></script>
+</head>
+<body>
+  <div class="weather-container">
+    <header>
+      <h1>Informasi Cuaca Kota &amp; Prakiraan 7 Hari</h1>
+      <p class="subtitle">Bank Negara Indonesia (BNI) ODP IT 2026 — Capstone Mini Project.</p>
+    </header>
+
+    <main>
+      <!-- FORM PENCARIAN KOTA -->
+      <form id="formCuaca" class="search-form" novalidate>
+        <label for="kota" class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Nama kota</label>
+        <input id="kota" class="input-kota" type="search" placeholder="Ketik nama kota (mis: Jakarta, Surabaya, Tokyo)" required minlength="2" autocomplete="off">
+        <button id="cariCuaca" class="btn-search" type="submit">Cari Cuaca</button>
+      </form>
+
+      <!-- STATUS & NOTIFIKASI ARIA -->
+      <p id="status" class="status-box" role="status" aria-live="polite"></p>
+
+      <!-- KARTU CUACA SAAT INI -->
+      <div id="hasilCuaca"></div>
+
+      <!-- PRAKIRAAN 7 HARI (GRID RESPONSIF) -->
+      <section class="forecast-section">
+        <h3>Prakiraan Cuaca 7 Hari Mendatang</h3>
+        <ul id="forecast" class="forecast-grid"></ul>
+      </section>
+
+      <!-- RIWAYAT PENCARIAN TERAKHIR -->
+      <section class="history-section">
+        <div class="history-header">
+          <h3>Riwayat Kota Terakhir (Maks. 5)</h3>
+          <button id="hapusRiwayat" class="btn-clear" type="button">Hapus Riwayat</button>
+        </div>
+        <div id="riwayatKota" class="history-list"></div>
+      </section>
+    </main>
+
+    <footer class="attribution">
+      Data cuaca disediakan secara publik oleh <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo.com</a>.
+    </footer>
+  </div>
+</body>
+</html>

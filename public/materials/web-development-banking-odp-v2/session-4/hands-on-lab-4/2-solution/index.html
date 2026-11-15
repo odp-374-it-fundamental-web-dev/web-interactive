@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Profil Bootstrap - BNI ODP IT 2026</title>
+
+  <!-- 1. Bootstrap 5.3.8 Framework CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- 2. Custom CSS Overrides Dimuat Setelah Bootstrap -->
+  <link rel="stylesheet" href="styles/custom.css">
+</head>
+<body class="bg-light">
+  <!-- 1. Bilah Navigasi Responsif Bootstrap -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navy shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          BNI <span class="badge bg-warning text-dark ms-1">ODP IT 2026</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse show" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#tentang">Tentang</a></li>
+            <li class="nav-item"><a class="nav-link" href="#modul">Modul</a></li>
+            <li class="nav-item"><a class="nav-link" href="#jadwal">Jadwal</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-4">
+    <!-- 2. Alert Status Aksesibel (role="status") -->
+    <div class="alert alert-info border-start border-4 border-info shadow-sm d-flex align-items-center" role="status">
+      <div>
+        <strong>Status Sistem Pelatihan:</strong> Lingkungan portal perbankan terintegrasi dengan jaringan internal BNI. Seluruh simulasi data bersifat sintetis.
+      </div>
+    </div>
+
+    <!-- 3. Hero Profile Section dengan Mobile-First Transition -->
+    <section id="tentang" class="hero-card p-4 my-4 bg-white border rounded shadow-sm">
+      <div class="hero-avatar mb-3 mb-md-0 me-md-4">
+        <img src="assets/avatar.svg" alt="Foto profil resmi Budi Santoso" width="120" height="120">
+      </div>
+      <div class="hero-text">
+        <h1 class="h2 text-navy mb-1">Budi Santoso</h1>
+        <p class="text-orange fw-bold mb-2">Junior Software Engineer - BNI ODP IT 2026</p>
+        <p class="text-muted mb-0">
+          Peserta pelatihan pengembangan web perbankan dengan spesialisasi arsitektur frontend modern, sistem grid responsif Bootstrap 5.3, dan tata kelola keamanan perbankan digital.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Sistem 12 Kolom Grid: .container -> .row -> .col-12 .col-md-6 .col-lg-4 -->
+    <section id="modul" class="my-5">
+      <h2 class="h4 text-navy mb-3">Fokus Modul Keahlian Perbankan</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 p-3 shadow-sm module-card">
+            <div class="card-body p-0">
+              <h3 class="card-title h5 text-navy">Frontend Architecture</h3>
+              <p class="card-text text-muted">
+                Membangun antarmuka web perbankan yang aksesibel (WCAG AA), berkinerja tinggi, dan responsif di berbagai perangkat.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 p-3 shadow-sm module-card">
+            <div class="card-body p-0">
+              <h3 class="card-title h5 text-navy">Core Banking APIs</h3>
+              <p class="card-text text-muted">
+                Merancang microservices tangguh, pemrosesan transaksi real-time BI-FAST, dan integritas basis data terdistribusi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 p-3 shadow-sm module-card">
+            <div class="card-body p-0">
+              <h3 class="card-title h5 text-navy">DevSecOps Standard</h3>
+              <p class="card-text text-muted">
+                Mengamankan pipeline CI/CD, mencegah secret leakage, dan mematuhi regulasi OJK &amp; Bank Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Bootstrap Data Table Section -->
+    <section id="jadwal" class="my-5">
+      <h2 class="h4 text-navy mb-3">Rencana Pembelajaran 4 Minggu Pertama</h2>
+      <div class="table-responsive bg-white rounded border shadow-sm">
+        <table class="table table-hover table-striped mb-0">
+          <caption class="p-3 text-navy fw-semibold">Jadwal Sesi Pelatihan Web Development - BNI ODP IT 2026</caption>
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Minggu</th>
+              <th scope="col">Fokus Materi</th>
+              <th scope="col">Target Luaran</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Web Fundamentals &amp; HTML5</td>
+              <td>Struktur semantik dokumen profil</td>
+              <td><span class="badge bg-success">Selesai</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>HTML Forms, Git &amp; GitHub</td>
+              <td>Formulir kontak &amp; riwayat commit</td>
+              <td><span class="badge bg-success">Selesai</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>CSS Layout: Flexbox &amp; Grid</td>
+              <td>Tata letak responsif dua halaman</td>
+              <td><span class="badge bg-success">Selesai</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Responsive Web &amp; Bootstrap</td>
+              <td>Portal terintegrasi mobile-first</td>
+              <td><span class="badge bg-primary">Berjalan</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Bootstrap Form Section -->
+    <section id="kontak" class="my-5">
+      <div class="card p-4 shadow-sm">
+        <h2 class="h4 text-navy mb-3">Kirim Pesan ke Trainee</h2>
+        <form action="#" method="POST">
+          <div class="mb-3">
+            <label for="inputNama" class="form-label fw-semibold text-navy">Nama Lengkap:</label>
+            <input type="text" id="inputNama" name="nama" class="form-control" required minlength="3" placeholder="Contoh: Budi Santoso">
+          </div>
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label fw-semibold text-navy">Email Resmi Perusahaan:</label>
+            <input type="email" id="inputEmail" name="email" class="form-control" required placeholder="nama@bni.co.id">
+          </div>
+          <div class="mb-3">
+            <label for="inputPesan" class="form-label fw-semibold text-navy">Isi Pesan:</label>
+            <textarea id="inputPesan" name="pesan" rows="4" class="form-control" required minlength="10" placeholder="Tuliskan pesan Anda minimal 10 karakter..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary px-4">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-top py-4 text-center text-muted">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 PT Bank Negara Indonesia (Persero) Tbk. Latihan Web Development ODP IT.</p>
+    </div>
+  </footer>
+
+  <!-- 7. Bootstrap 5.3.8 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

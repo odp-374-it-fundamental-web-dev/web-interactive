@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 2: Storage Startup Bug (Starter)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; }
+    .badge { display: inline-block; padding: 0.25rem 0.5rem; background: #e0f2fe; color: #0369a1; border-radius: 4px; margin: 0.25rem; }
+  </style>
+</head>
+<body>
+  <h1>Simulasi Bug Riwayat Hilang</h1>
+  <p>Coba tambahkan kota, lalu reload halaman. Periksa apakah data tetap ada atau hilang!</p>
+
+  <button id="btnTambah">Simpan "Bandung" ke Riwayat</button>
+  <button id="btnReload" onclick="location.reload()">Reload Halaman (F5)</button>
+
+  <h3>Isi Riwayat Saat Ini:</h3>
+  <div id="daftar"></div>
+</body>
+</html>

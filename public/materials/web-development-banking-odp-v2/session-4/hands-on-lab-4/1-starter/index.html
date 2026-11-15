@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- TODO 1: Pastikan viewport meta tag terpasang -->
+  <meta charset="UTF-8">
+  <title>Portal Profil Bootstrap - BNI ODP IT 2026</title>
+
+  <!-- 
+    TODO 2: Pasang link CSS Bootstrap 5.3.8 CDN
+    TODO 3: Pasang link styles/custom.css SETELAH link Bootstrap
+  -->
+  <link rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+  <!-- 
+    TODO 4: Konfigurasi navbar Bootstrap
+    Gunakan kelas .navbar .navbar-expand-lg .navbar-dark .bg-dark
+    Tambahkan brand .navbar-brand dan menu .navbar-nav
+  -->
+  <header>
+    <nav>
+      <div class="container">
+        <span>BNI ODP IT Portal</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-4">
+    <!-- 
+      TODO 5: Ubah banner di bawah menjadi alert Bootstrap
+      Gunakan class="alert alert-info shadow-sm" dan role="status"
+    -->
+    <div>
+      <strong>Status Sistem:</strong> Lingkungan portal terintegrasi dengan jaringan internal BNI.
+    </div>
+
+    <!-- Hero Profile Section -->
+    <section class="hero-card p-4 my-4 bg-white border rounded shadow-sm">
+      <div class="hero-avatar mb-3">
+        <img src="assets/avatar.svg" alt="Foto profil resmi Budi Santoso" width="120" height="120">
+      </div>
+      <div class="hero-text">
+        <h1 class="h2 text-navy">Budi Santoso</h1>
+        <p class="text-orange fw-bold">Junior Software Engineer - BNI ODP IT 2026</p>
+        <p class="text-muted">
+          Peserta pelatihan pengembangan web perbankan dengan pemahaman standardisasi HTML5, tata letak CSS3, dan framework Bootstrap 5.3.
+        </p>
+      </div>
+    </section>
+
+    <!-- 
+      TODO 6: Buat galeri kartu 12-kolom responsif
+      Hierarki: .row g-3 -> .col-12 .col-md-6 .col-lg-4
+      Gunakan .card, .card-body, .card-title, .card-text
+    -->
+    <section class="my-4">
+      <h2 class="h4 text-navy mb-3">Fokus Modul Keahlian</h2>
+      <div>
+        <div>
+          <h3>Frontend Architecture</h3>
+          <p>Membangun antarmuka aksesibel dan responsif.</p>
+        </div>
+        <div>
+          <h3>Core Banking APIs</h3>
+          <p>Integrasi microservices dan pemrosesan data aman.</p>
+        </div>
+        <div>
+          <h3>DevSecOps Standard</h3>
+          <p>Kepatuhan keamanan kode dan perlindungan rahasia perbankan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table Section -->
+    <section class="my-4">
+      <h2 class="h4 text-navy mb-3">Rencana Pembelajaran 4 Minggu</h2>
+      <!-- TODO 7: Berikan kelas Bootstrap class="table table-hover table-striped border shadow-sm" pada table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Minggu</th>
+            <th>Fokus Materi</th>
+            <th>Target Luaran</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Web Fundamentals &amp; HTML5</td>
+            <td>Struktur semantik dokumen profil</td>
+            <td>Selesai</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>HTML Forms, Git &amp; GitHub</td>
+            <td>Formulir kontak &amp; riwayat commit</td>
+            <td>Selesai</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>CSS Layout: Flexbox &amp; Grid</td>
+            <td>Tata letak responsif dua halaman</td>
+            <td>Selesai</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Responsive Web &amp; Bootstrap</td>
+            <td>Portal terintegrasi mobile-first</td>
+            <td>Berjalan</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="my-4">
+      <div class="card p-4 shadow-sm">
+        <h2 class="h4 text-navy mb-3">Kirim Pesan ke Trainee</h2>
+        <form action="#" method="POST">
+          <!-- 
+            TODO 8: Terapkan class="form-label" pada label dan class="form-control" pada input
+          -->
+          <div class="mb-3">
+            <label for="inputNama">Nama Lengkap:</label>
+            <input type="text" id="inputNama" name="nama" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputEmail">Email Kantor:</label>
+            <input type="email" id="inputEmail" name="email" required>
+          </div>
+          <!-- TODO 9: Berikan class="btn btn-primary" pada tombol submit -->
+          <button type="submit">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PT Bank Negara Indonesia (Persero) Tbk. Latihan Web Development ODP IT.</p>
+  </footer>
+
+  <!-- TODO 10: Pasang script bundle Bootstrap 5.3.8 JS di sini sebelum </body> -->
+</body>
+</html>

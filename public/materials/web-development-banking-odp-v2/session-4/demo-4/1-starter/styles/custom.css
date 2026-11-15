@@ -1,0 +1,26 @@
+/* styles/custom.css - Trainee Starter Mobile-First Overrides */
+
+/* 
+  TODO 1: Konfigurasi .hero-profile secara mobile-first
+  - display: flex;
+  - flex-direction: column;
+  - align-items: center;
+  - text-align: center;
+*/
+.hero-profile {
+  display: flex;
+}
+
+/* 
+  TODO 2: Tuliskan mobile-first media query @media (min-width: 768px)
+  - Ubah flex-direction: row;
+  - Ubah text-align: left;
+  - align-items: center;
+*/
+
+/* 
+  TODO 3: Override tombol Bootstrap .btn-primary dengan warna korporat BNI
+  - background-color: #F05A22;
+  - border-color: #F05A22;
+  - Dan :hover dengan background-color: #D94814;
+*/

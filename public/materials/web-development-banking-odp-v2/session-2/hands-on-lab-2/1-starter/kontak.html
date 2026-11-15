@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hubungi Kami - BNI ODP IT</title>
+</head>
+<body>
+  <header>
+    <h1>Hubungi Saya</h1>
+    <p>Kirimkan pesan atau pertanyaan seputar proyek latihan pelatihan perbankan digital.</p>
+  </header>
+
+  <nav>
+    <!-- TODO 1: Tambahkan tautan kembali ke index.html -->
+    <a href="">Kembali ke Profil</a>
+  </nav>
+
+  <main>
+    <!-- 
+      TODO 2: Ubah method="GET" menjadi method="POST"
+      method="GET" membocorkan data form ke dalam URL browser!
+    -->
+    <form action="#" method="GET">
+      <div>
+        <!-- 
+          TODO 3: Pasang label for="namaLengkap" dan input id="namaLengkap" name="nama_lengkap"
+          TODO 4: Tambahkan atribut required dan minlength="3"
+        -->
+        <label>Nama Lengkap:</label><br>
+        <input type="text" placeholder="Nama lengkap Anda">
+      </div>
+
+      <br>
+
+      <div>
+        <!-- 
+          TODO 5: Pasang label for="emailPengirim" dan input id="emailPengirim" name="email_pengirim"
+          TODO 6: Pastikan type="email" dan tambahkan atribut required
+        -->
+        <label>Email Resmi:</label><br>
+        <input type="text" placeholder="nama@bni.co.id">
+      </div>
+
+      <br>
+
+      <div>
+        <!-- 
+          TODO 7: Pasang label for="topikPesan" dan select id="topikPesan" name="topik_pesan"
+          TODO 8: Tambahkan required dan pastikan opsi pertama berupa value=""
+        -->
+        <label>Topik Pesan:</label><br>
+        <select>
+          <option value="konsultasi">Konsultasi Materi Pelatihan</option>
+          <option value="kolaborasi">Kolaborasi Proyek</option>
+          <option value="lainnya">Lainnya</option>
+        </select>
+      </div>
+
+      <br>
+
+      <div>
+        <!-- 
+          TODO 9: Pasang label for="isiPesan" dan textarea id="isiPesan" name="isi_pesan"
+          TODO 10: Tambahkan rows="4", required, dan minlength="10"
+        -->
+        <label>Pesan Anda:</label><br>
+        <textarea placeholder="Tuliskan pesan Anda minimal 10 karakter..."></textarea>
+      </div>
+
+      <br>
+
+      <!-- TODO 11: Tambahkan type="submit" pada tombol -->
+      <button>Kirim Pesan</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PT Bank Negara Indonesia (Persero) Tbk. Latihan Web Development ODP IT.</p>
+  </footer>
+</body>
+</html>

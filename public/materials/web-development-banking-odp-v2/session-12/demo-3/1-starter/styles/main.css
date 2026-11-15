@@ -1,0 +1,42 @@
+/**
+ * Demo 3: Responsive Forecast Grid (Starter)
+ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* TODO 1: Ganti display block menjadi CSS Grid dengan repeat(auto-fit, minmax(8.5rem, 1fr)) */
+.forecast-grid {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: block; /* Ganti dengan grid */
+  gap: 0.75rem;
+}
+
+.forecast-card {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-weight: bold;
+  color: #1d3d70;
+  margin-bottom: 0.5rem;
+}
+
+.temp {
+  font-size: 0.9rem;
+  color: #334155;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 4: Form Transaksi (Starter)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; line-height: 1.5; }
+    form { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+    input, button { padding: 0.5rem; font-size: 1rem; }
+    #pesan { font-weight: bold; min-height: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Catat Transaksi Kas</h1>
+
+  <form id="formTransaksi" novalidate>
+    <label for="nama">Nama Transaksi:</label>
+    <input id="nama" name="nama" required placeholder="Mis: Setoran Tunai">
+
+    <label for="nominal">Nominal (IDR):</label>
+    <input id="nominal" name="nominal" type="number" required placeholder="50000">
+
+    <button type="submit">Tambahkan</button>
+    <p id="pesan" role="status" aria-live="polite"></p>
+  </form>
+
+  <h2>Daftar Transaksi</h2>
+  <ul id="daftarTransaksi"></ul>
+</body>
+</html>

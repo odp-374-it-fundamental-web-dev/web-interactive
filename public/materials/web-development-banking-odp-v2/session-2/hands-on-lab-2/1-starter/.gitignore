@@ -1,0 +1,8 @@
+# TODO: Tambahkan aturan untuk mengabaikan berkas .env
+# .env
+
+# TODO: Tambahkan aturan untuk mengabaikan berkas cache OS .DS_Store
+# .DS_Store
+
+# TODO: Tambahkan aturan untuk mengabaikan direktori dependensi node_modules/
+# node_modules/

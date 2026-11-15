@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 4: Race Condition Guard (Solution)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 500px; margin: 0 auto; line-height: 1.5; color: #1e293b; }
+    button { padding: 0.65rem 1.25rem; font-size: 1rem; border-radius: 6px; border: none; background: #1d3d70; color: white; font-weight: 600; cursor: pointer; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; background: #64748b; }
+    .log-box { margin-top: 1rem; padding: 1rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; font-family: monospace; font-size: 0.85rem; max-height: 250px; overflow-y: auto; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Perlindungan Double-Submit &amp; Race Condition</h1>
+  <p>Tombol dilindungi oleh Guard Clause <code>if (button.disabled) return;</code></p>
+
+  <button id="btnSpam">Kirim Permintaan Transaksi</button>
+  <div id="logArea" class="log-box">Status: Siap menerima klik...</div>
+</body>
+</html>

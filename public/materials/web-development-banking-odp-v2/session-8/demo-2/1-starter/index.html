@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo 2: DOM Manipulation (Starter)</title>
+  <script src="scripts/app.js" defer></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: 0 auto; }
+    .status-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: bold; }
+    .aktif { background-color: #dcfce7; color: #166534; }
+    .terblokir { background-color: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <h1>Status Kartu Debit BNI</h1>
+  <div id="kartuNasabah">
+    <p>Pemegang: <strong id="namaPemegang">Ahmad Dahlan</strong></p>
+    <p>Status: <span id="badgeStatus" class="status-badge aktif">AKTIF</span></p>
+    <p>Catatan Keamanan: <span id="catatanKeamanan">Menunggu verifikasi...</span></p>
+  </div>
+
+  <button id="btnToggleStatus">Ubah Status</button>
+</body>
+</html>

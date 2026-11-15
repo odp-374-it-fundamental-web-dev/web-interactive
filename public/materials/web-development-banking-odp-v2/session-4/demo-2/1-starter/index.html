@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Komponen Bootstrap - BNI ODP IT</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+  <!-- TODO 1: Ubah nav menjadi navbar Bootstrap (.navbar .navbar-expand-lg .navbar-dark .bg-dark) -->
+  <nav>
+    <div class="container">
+      <a href="#">BNI ODP IT Portal</a>
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#transaksi">Transaksi</a></li>
+        <li><a href="#pengaturan">Pengaturan</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <!-- TODO 2: Ubah div di bawah menjadi alert Bootstrap: class="alert alert-info" role="status" -->
+    <div>
+      <strong>Info Pemeliharaan:</strong> Sistem kliring BI-FAST beroperasi normal 24/7.
+    </div>
+
+    <br>
+
+    <!-- TODO 3: Ubah elemen di bawah menjadi Bootstrap Card (.card, .card-header, .card-body, .card-title, .card-text) -->
+    <div>
+      <div>Rekening Operasional Trainee</div>
+      <div>
+        <h3>IDR 25.000.000</h3>
+        <p>Saldo aktif untuk simulasi transaksi modul perbankan digital.</p>
+        <button>Lihat Mutasi</button>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- TODO 4: Terapkan class="form-label" dan class="form-control" pada input form -->
+    <form action="#" method="POST">
+      <div>
+        <label for="nominalTrx">Nominal Simulasi Transfer:</label>
+        <input type="number" id="nominalTrx" name="nominal">
+      </div>
+      <br>
+      <button>Proses Transfer</button>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hubungi Kami - BNI ODP IT</title>
+</head>
+<body>
+  <header>
+    <h1>Hubungi Saya</h1>
+    <p>Kirimkan pesan atau pertanyaan seputar proyek latihan pelatihan perbankan digital.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Kembali ke Profil</a> |
+    <a href="pendaftaran.html">Form Pendaftaran</a>
+  </nav>
+
+  <main>
+    <form action="#" method="POST">
+      <div>
+        <label for="namaLengkap">Nama Lengkap:</label><br>
+        <input type="text" id="namaLengkap" name="nama_lengkap" required minlength="3" placeholder="Contoh: Budi Santoso">
+      </div>
+
+      <br>
+
+      <div>
+        <label for="emailPengirim">Email Resmi Perusahaan:</label><br>
+        <input type="email" id="emailPengirim" name="email_pengirim" required placeholder="nama@bni.co.id">
+      </div>
+
+      <br>
+
+      <div>
+        <label for="topikPesan">Topik Pertanyaan / Diskusi:</label><br>
+        <select id="topikPesan" name="topik_pesan" required>
+          <option value="">-- Pilih Topik Layanan --</option>
+          <option value="konsultasi">Konsultasi Materi Pelatihan</option>
+          <option value="kolaborasi">Kolaborasi Proyek Tim</option>
+          <option value="keamanan">Kepatuhan Standar Keamanan Data</option>
+          <option value="lainnya">Topik Lainnya</option>
+        </select>
+      </div>
+
+      <br>
+
+      <div>
+        <label for="isiPesan">Deskripsi Pesan (Minimal 10 Karakter):</label><br>
+        <textarea id="isiPesan" name="isi_pesan" rows="4" cols="45" required minlength="10" placeholder="Tuliskan pesan atau kendala teknis Anda secara jelas..."></textarea>
+      </div>
+
+      <br>
+
+      <button type="submit">Kirim Pesan</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PT Bank Negara Indonesia (Persero) Tbk. Latihan Web Development ODP IT.</p>
+  </footer>
+</body>
+</html>

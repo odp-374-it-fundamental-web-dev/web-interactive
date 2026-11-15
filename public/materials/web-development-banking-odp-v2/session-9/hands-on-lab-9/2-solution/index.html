@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Web App — Milestone 3 (Solution)</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- Pemuatan skrip eksternal dengan defer menjamin DOM parsing selesai -->
+  <script src="scripts/app.js" defer></script>
+</head>
+<body>
+  <div class="weather-container">
+    <h1>Informasi Cuaca Kota</h1>
+    <p class="subtitle">Milestone 3: Integrasi Asinkron REST API Open-Meteo.</p>
+
+    <form id="formCuaca" class="search-form" novalidate>
+      <label for="kota" class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Nama kota</label>
+      <input id="kota" class="input-kota" placeholder="Ketik nama kota (mis: Jakarta, Tokyo)" required minlength="2">
+      <button id="cariCuaca" class="btn-search" type="submit">Cari Cuaca</button>
+    </form>
+
+    <p id="status" role="status" aria-live="polite"></p>
+    <div id="hasilCuaca"></div>
+
+    <footer class="attribution">
+      Weather data by <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo.com</a>
+    </footer>
+  </div>
+</body>
+</html>

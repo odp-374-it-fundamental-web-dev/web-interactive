@@ -1,0 +1,125 @@
+/**
+ * Main Stylesheet: Hands-on Lab 8
+ */
+:root {
+  --primary-navy: #1d3d70;
+  --accent-orange: #f06634;
+  --bg-card: #f8fafc;
+  --border-slate: #cbd5e1;
+  --text-dark: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 2rem 1rem;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--border-slate);
+}
+
+h1, h2 {
+  color: var(--primary-navy);
+  margin-top: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input, select {
+  padding: 0.65rem;
+  border: 1px solid var(--border-slate);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: 2px solid var(--primary-navy);
+  border-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary-navy);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #152d53;
+}
+
+#pesan {
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.pesan-error {
+  color: #dc2626;
+}
+
+.pesan-sukses {
+  color: #16a34a;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-list li {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-slate);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-list li:last-child {
+  border-bottom: none;
+}
+
+.badge-tag {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
