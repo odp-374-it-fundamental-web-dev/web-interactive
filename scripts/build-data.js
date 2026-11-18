@@ -90,9 +90,9 @@ const sessionMeta = {
   12: {
     phase: "Fase 3: Async, Storage, Quality & Capstone",
     title: "Capstone Mini Project & Deployment",
-    tagline: "Prakiraan 7 hari Open-Meteo, responsive CSS grid, subpath audit, dan rilis GitHub Pages.",
+    tagline: "Kalkulator kurs Rupiah Frankfurter API, validasi input, status UI, riwayat localStorage, dan deployment daring.",
     hours: 3.5,
-    slides: 40
+    slides: 39
   }
 };
 

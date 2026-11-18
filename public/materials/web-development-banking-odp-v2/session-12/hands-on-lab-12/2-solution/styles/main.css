@@ -1,6 +1,6 @@
 /**
- * BNI ODP IT 2026 - Capstone Mini Project: Weather Web App
- * Stylesheet: Responsive Layout & Forecast CSS Grid
+ * BNI ODP IT 2026 - Mini Capstone: Kalkulator Kurs Rupiah
+ * Stylesheet: Responsive Layout
  */
 
 :root {
@@ -28,7 +28,7 @@ body {
   line-height: 1.6;
 }
 
-.weather-container {
+.app-container {
   max-width: 900px;
   margin: 0 auto;
   background: var(--card-bg);
@@ -60,7 +60,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.input-kota {
+.input-kode {
   flex: 1 1 250px;
   padding: 0.65rem 1rem;
   border: 1px solid var(--border-slate);
@@ -70,7 +70,7 @@ h1 {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input-kota:focus {
+.input-kode:focus {
   border-color: var(--primary-navy);
   box-shadow: 0 0 0 3px rgba(29, 61, 112, 0.15);
 }
@@ -142,8 +142,8 @@ h1 {
   border-left: 4px solid #22c55e;
 }
 
-/* CURRENT WEATHER CARD */
-.weather-card {
+/* CURRENT RATE CARD */
+.rate-card {
   background: linear-gradient(135deg, #1d3d70 0%, #2b5797 100%);
   color: white;
   padding: 1.5rem;
@@ -152,80 +152,25 @@ h1 {
   box-shadow: 0 4px 8px rgba(29, 61, 112, 0.2);
 }
 
-.weather-card h2 {
+.rate-card h2 {
   margin-top: 0;
   margin-bottom: 0.25rem;
   font-size: 1.4rem;
 }
 
-.weather-card .temp-now {
+.rate-card .amount-now {
   font-size: 2.25rem;
   font-weight: bold;
   color: #ffedd5;
   margin: 0.5rem 0;
 }
 
-.weather-card .wind-now {
+.rate-card .rate-meta {
   font-size: 0.95rem;
   color: #e2e8f0;
 }
 
-/* 7-DAY FORECAST SECTION & CSS GRID AUTO-FIT */
-.forecast-section {
-  margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
-}
-
-.forecast-section h3 {
-  color: var(--primary-navy);
-  margin-bottom: 0.75rem;
-  font-size: 1.15rem;
-}
-
-.forecast-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
-  gap: 0.75rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.forecast-card {
-  background: #f8fafc;
-  border: 1px solid var(--border-slate);
-  border-radius: 8px;
-  padding: 0.85rem 0.5rem;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.forecast-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  border-color: #94a3b8;
-}
-
-.forecast-card .date {
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--primary-navy);
-  margin-bottom: 0.35rem;
-}
-
-.forecast-card .temp-max {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--accent-orange);
-  margin-bottom: 0.15rem;
-}
-
-.forecast-card .temp-min {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* SEARCH HISTORY SECTION */
+/* PAIR HISTORY SECTION */
 .history-section {
   margin-top: 2rem;
   padding-top: 1.25rem;
@@ -295,4 +240,32 @@ h1 {
 .attribution a {
   color: var(--primary-navy);
   text-decoration: underline;
+}
+
+/* INPUT & FORM EXTRAS */
+.input-jumlah {
+  flex: 0 1 140px;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-jumlah:focus {
+  border-color: var(--primary-navy);
+  box-shadow: 0 0 0 3px rgba(29, 61, 112, 0.15);
+}
+
+/* SCREEN-READER ONLY */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }

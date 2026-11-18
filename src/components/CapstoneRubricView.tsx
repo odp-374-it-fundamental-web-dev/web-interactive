@@ -17,15 +17,15 @@ export const initialRubricItems: RubricItem[] = [
     category: '1. Version Control & GitHub',
     points: 10,
     title: 'Repositori Publik & Komitmen Terstruktur',
-    description: 'Repositori GitHub publik, komitmen git teratur dengan deskripsi informatif, dan berkas README.md proyek profesional.',
+    description: 'Repositori GitHub publik, komitmen git teratur dengan deskripsi informatif, dan berkas README.md proyek profesional dengan tautan live.',
     checked: true
   },
   {
     id: '2',
     category: '2. HTML Semantik & Aksesibilitas',
     points: 8,
-    title: 'Landmark Semantik & Kontrak Form',
-    description: 'Penggunaan elemen semantik (<header>, <main>, <footer>), form dengan input berlabel unik, dan ketiadaan error konsol.',
+    title: 'Landmark Semantik & Kontrak Form (#formKurs)',
+    description: 'Penggunaan elemen semantik (<header>, <main>, <footer>), form konversi dengan label terkait untuk jumlah dan kode mata uang, serta ketiadaan error konsol.',
     checked: true
   },
   {
@@ -33,68 +33,68 @@ export const initialRubricItems: RubricItem[] = [
     category: '2. HTML Semantik & Aksesibilitas',
     points: 7,
     title: 'Aksesibilitas WAI-ARIA & Jalur Relatif',
-    description: 'Elemen live region (role="status", aria-live="polite"), atribusi resmi Open-Meteo, dan jalur relatif (./) siap subpath.',
+    description: 'Elemen live feedback status (role="status", aria-live="polite"), atribusi resmi Frankfurter/ECB, dan jalur relatif (./) siap hosting subpath.',
     checked: true
   },
   {
     id: '4',
-    category: '3. CSS & Responsive Grid',
-    points: 8,
-    title: 'Auto-Fit CSS Grid 7 Hari',
-    description: 'Tata letak kartu cuaca fluid menggunakan repeat(auto-fit, minmax(8.5rem, 1fr)) tanpa overflow horizontal pada mobile.',
+    category: '3. CSS Responsif',
+    points: 5,
+    title: 'Tata Letak Responsif Mobile-First',
+    description: 'Tampilan rapi di HP & laptop tanpa horizontal scroll; box-sizing reset; kartu konversi kurs bergradien dengan kontras tinggi.',
     checked: true
   },
   {
     id: '5',
-    category: '3. CSS & Responsive Grid',
-    points: 7,
-    title: 'Hierarki Visual & Elevasi Hover',
-    description: 'Desain bersih berpalet BNI/Hacktiv8, status badge hari ini/besok, dan efek transisi hover kartu.',
+    category: '3. CSS Responsif',
+    points: 5,
+    title: 'Deretan Chip Riwayat Flex-Wrap',
+    description: 'Jajaran chip pasangan mata uang menggunakan flex-wrap yang turun baris rapi pada layar sempit.',
     checked: true
   },
   {
     id: '6',
     category: '4. Fungsi Murni & Transformasi Data',
     points: 10,
-    title: 'Penyusunan URL 7 Hari (makeWeatherURL)',
-    description: 'Konstruksi URLSearchParams mencakup latitude, longitude, forecast_days=7, daily, dan timezone=auto.',
+    title: 'URL Builder Frankfurter (makeLatestURL)',
+    description: 'Validasi alfabet 3 huruf, UPPERCASE otomatis, dan penyusunan query string base & symbols via URLSearchParams.',
     checked: true
   },
   {
     id: '7',
     category: '4. Fungsi Murni & Transformasi Data',
     points: 10,
-    title: 'Transformasi Array Harian (toForecastRows)',
-    description: 'Pemetaan array paralel harian ke 7 baris objek terstruktur { date, max, min } dengan sanitasi angka Number.isFinite().',
+    title: 'Pemetaan Valuta Indonesia (describeCurrencyCode)',
+    description: 'Pemetaan 14 kode ISO (USD, IDR, SGD, EUR, JPY, dll.) ke Bahasa Indonesia dengan fallback case-insensitive.',
     checked: true
   },
   {
     id: '8',
-    category: '5. Integrasi API Asinkron & Guard',
-    points: 10,
-    title: 'Orkestrasi Geocoding & Forecast API',
-    description: 'Pemanggilan asinkron 2 tahap melalui getJSON(), status loading/success/empty/error, dan penanganan kota tidak ditemukan.',
+    category: '5. Integrasi API & Double-Request Guard',
+    points: 15,
+    title: 'Integrasi Frankfurter API & 5 State UI',
+    description: 'Pengambilan kurs via Latest Rates API, penanganan 5 status UI lengkap (loading, success, empty, error, invalid), dan rendering aman textContent anti-XSS.',
     checked: true
   },
   {
     id: '9',
-    category: '5. Integrasi API Asinkron & Guard',
+    category: '5. Integrasi API & Double-Request Guard',
     points: 10,
-    title: 'Race Condition Fail-Fast Guard',
-    description: "Guard clause 'if (button.disabled) return;' di awal loadWeather dan pemulihan status tombol di blok finally.",
+    title: 'Double-Request Fail-Fast Guard',
+    description: "Guard clause 'if (button && button.disabled) return;' di awal loadRate dan pemulihan status tombol di blok finally.",
     checked: true
   },
   {
     id: '10',
-    category: '6. Persistensi Storage & Deployment',
+    category: '6. Penyimpanan Lokal & Deployment Live',
     points: 10,
-    title: 'Persistensi Riwayat 5 Kota (nextHistory)',
-    description: 'Penyimpanan 5 kota unik terbaru di localStorage, deduplikasi case-insensitive, dan tombol hapus riwayat.',
+    title: 'Persistensi Riwayat 5 Pasangan (nextHistory)',
+    description: 'Penyimpanan maksimal 5 string pasangan unik (XXX/XXX) di localStorage, deduplikasi case-insensitive, array immutability, dan tombol hapus riwayat.',
     checked: true
   },
   {
     id: '11',
-    category: '6. Persistensi Storage & Deployment',
+    category: '6. Penyimpanan Lokal & Deployment Live',
     points: 10,
     title: 'Publikasi Live (Vercel / GitHub Pages / Netlify)',
     description: 'Aplikasi ter-deploy live dan berfungsi 100% pada URL publik (Vercel, GitHub Pages, atau Netlify) tanpa aset rusak atau error 404.',
@@ -145,7 +145,7 @@ export const CapstoneRubricView: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
-                Evaluasi komprehensif mini project Weather Web App & kesiapan rilis GitHub Pages
+                Evaluasi komprehensif mini project Kalkulator Kurs Rupiah & kesiapan rilis perbankan
               </p>
             </div>
           </div>

@@ -158,7 +158,7 @@ export const Hero3D: React.FC<Hero3DProps> = ({
 
             <p className="mt-2 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
               Portal laboratorium terintegrasi: 12 sesi (42 jam) penguasaan HTML5 semantik, CSS responsif modern, 
-              logika pemrograman JavaScript ES6+, integrasi REST API Open-Meteo, serta evaluasi Capstone Weather Web App.
+              logika pemrograman JavaScript ES6+, integrasi REST API Frankfurter, serta evaluasi Capstone Kalkulator Kurs Rupiah.
             </p>
 
             {/* Quick Stats Strip */}

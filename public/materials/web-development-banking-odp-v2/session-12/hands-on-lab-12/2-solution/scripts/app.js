@@ -1,31 +1,32 @@
 /**
- * Capstone Mini Project: Weather Web App Orchestration
+ * Mini Capstone: Kalkulator Kurs Rupiah Orchestration
  * Reference Solution (Instruktur)
- * 
+ *
  * Standar integrasi perbankan:
  * - Double-request fail-fast guard
- * - Pemanfaatan modul terpisah forecast-helper.js dan next-history.js
+ * - Pemanfaatan modul terpisah rate-helper.js dan next-history.js
  * - Render DOM aman bebas injeksi HTML (textContent)
  * - Tanpa penghapusan storage saat startup
  */
 
-const form = document.querySelector("#formCuaca");
-const kotaInput = document.querySelector("#kota");
-const button = document.querySelector("#cariCuaca");
+const form = document.querySelector("#formKurs");
+const jumlahInput = document.querySelector("#jumlah");
+const baseInput = document.querySelector("#inputDasar");
+const targetInput = document.querySelector("#inputTujuan");
+const button = document.querySelector("#konversiKurs");
 const status = document.querySelector("#status");
-const hasil = document.querySelector("#hasilCuaca");
-const forecastContainer = document.querySelector("#forecast");
-const riwayatContainer = document.querySelector("#riwayatKota");
+const hasil = document.querySelector("#hasilKurs");
+const riwayatContainer = document.querySelector("#riwayatPair");
 const btnHapusRiwayat = document.querySelector("#hapusRiwayat");
 
-const STORAGE_KEY = "bni-odp-weather-history-v1";
+const STORAGE_KEY = "bni-odp-kurs-history";
 
 const label = {
-  loading: "Mengambil data prakiraan cuaca...",
-  success: "Data cuaca berhasil dimuat.",
-  empty: "Kota tidak ditemukan.",
-  error: "Gagal memuat data cuaca. Periksa koneksi Anda.",
-  invalid: "Masukkan minimal dua karakter nama kota."
+  loading: "Mengambil data kurs...",
+  success: "Data kurs berhasil dimuat.",
+  empty: "Pasangan mata uang tidak ditemukan.",
+  error: "Gagal memuat data kurs. Periksa koneksi Anda.",
+  invalid: "Masukkan jumlah dan kode mata uang yang valid (3 huruf)."
 };
 
 function setState(state) {
@@ -35,7 +36,6 @@ function setState(state) {
   }
   if (state !== "success") {
     if (hasil) hasil.replaceChildren();
-    if (forecastContainer) forecastContainer.replaceChildren();
   }
   if (button) {
     button.disabled = state === "loading";
@@ -53,17 +53,18 @@ function readHistory() {
   }
 }
 
-function saveHistory(cities) {
+function saveHistory(pairs) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cities));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(pairs));
   } catch (error) {
     console.error("Gagal menyimpan ke storage:", error.message);
   }
 }
 
-function rememberCity(city) {
+function rememberPair(pair) {
   const prev = readHistory();
-  const next = typeof nextHistory === "function" ? nextHistory(prev, city, 5) : [city, ...prev].slice(0, 5);
+  const next =
+    typeof nextHistory === "function" ? nextHistory(prev, pair, 5) : [pair, ...prev].slice(0, 5);
   saveHistory(next);
   renderHistory();
 }
@@ -71,25 +72,27 @@ function rememberCity(city) {
 function renderHistory() {
   if (!riwayatContainer) return;
   riwayatContainer.replaceChildren();
-  const cities = readHistory();
+  const pairs = readHistory();
 
-  if (cities.length === 0) {
+  if (pairs.length === 0) {
     const span = document.createElement("span");
-    span.textContent = "Belum ada riwayat kota tersimpan.";
+    span.textContent = "Belum ada riwayat pasangan kurs tersimpan.";
     span.style.color = "#94a3b8";
     span.style.fontStyle = "italic";
     riwayatContainer.appendChild(span);
     return;
   }
 
-  cities.forEach((kota) => {
+  pairs.forEach((pair) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "btn-city";
-    btn.textContent = kota;
+    btn.textContent = pair.replace("/", " → ");
     btn.addEventListener("click", () => {
-      if (kotaInput) kotaInput.value = kota;
-      loadWeather(kota);
+      const [base, target] = pair.split("/");
+      if (baseInput) baseInput.value = base;
+      if (targetInput) targetInput.value = target;
+      loadRate();
     });
     riwayatContainer.appendChild(btn);
   });
@@ -101,104 +104,63 @@ async function getJSON(url) {
   return response.json();
 }
 
-async function findCity(name) {
-  const url = new URL("https://geocoding-api.open-meteo.com/v1/search");
-  url.search = new URLSearchParams({
-    name,
-    count: "1",
-    language: "id",
-    format: "json"
-  }).toString();
-  const data = await getJSON(url);
-  return data.results?.[0] ?? null;
-}
+const round2 = (n) => Math.round(n * 100) / 100;
 
-async function fetchWeather(city) {
-  const url = makeWeatherURL(city);
-  return getJSON(url);
-}
-
-function renderWeather(city, data) {
+function renderRate(base, target, jumlah, data) {
   if (!hasil) return;
-  const c = data.current;
-  const u = data.current_units;
+  const rate = data.rates?.[target];
 
   const card = document.createElement("div");
-  card.className = "weather-card";
+  card.className = "rate-card";
 
   const title = document.createElement("h2");
-  title.textContent = `${city.name}, ${city.country ?? ""}`;
+  title.textContent = `${jumlah} ${base} =`;
 
-  const temp = document.createElement("div");
-  temp.className = "temp-now";
-  temp.textContent = `${c.temperature_2m} ${u.temperature_2m}`;
+  const amount = document.createElement("div");
+  amount.className = "amount-now";
+  amount.textContent = Number.isFinite(rate)
+    ? `${round2(jumlah * rate).toLocaleString("id-ID")} ${target}`
+    : "Rate tidak tersedia";
 
-  const wind = document.createElement("div");
-  wind.className = "wind-now";
-  wind.textContent = `Kecepatan angin: ${c.wind_speed_10m} ${u.wind_speed_10m} | Waktu data: ${c.time} (${data.timezone})`;
+  const meta = document.createElement("div");
+  meta.className = "rate-meta";
+  meta.textContent = `1 ${base} = ${round2(rate)} ${target} | Tanggal data: ${data.date}`;
+
+  // Nama mata uang (dari describeCurrencyCode)
+  if (typeof describeCurrencyCode === "function") {
+    const nameEl = document.createElement("div");
+    nameEl.className = "rate-name";
+    nameEl.textContent = `${describeCurrencyCode(base)} → ${describeCurrencyCode(target)}`;
+    card.appendChild(nameEl);
+  }
 
   card.appendChild(title);
-  card.appendChild(temp);
-  card.appendChild(wind);
+  card.appendChild(amount);
+  card.appendChild(meta);
 
   hasil.replaceChildren(card);
 }
 
-function renderForecast(data) {
-  if (!forecastContainer) return;
-  forecastContainer.replaceChildren();
-
-  const rows = typeof toForecastRows === "function" ? toForecastRows(data) : [];
-
-  rows.forEach((row, index) => {
-    const card = document.createElement("li");
-    card.className = "forecast-card";
-
-    const dateEl = document.createElement("div");
-    dateEl.className = "date";
-    if (index === 0) {
-      dateEl.textContent = `Hari Ini (${row.date})`;
-    } else if (index === 1) {
-      dateEl.textContent = `Besok (${row.date})`;
-    } else {
-      dateEl.textContent = row.date;
-    }
-
-    const maxEl = document.createElement("div");
-    maxEl.className = "temp-max";
-    maxEl.textContent = `${row.max}°C`;
-
-    const minEl = document.createElement("div");
-    minEl.className = "temp-min";
-    minEl.textContent = `Min: ${row.min}°C`;
-
-    card.appendChild(dateEl);
-    card.appendChild(maxEl);
-    card.appendChild(minEl);
-
-    forecastContainer.appendChild(card);
-  });
-}
-
-async function loadWeather(name) {
+async function loadRate() {
   // Fail-fast race condition guard
   if (button && button.disabled) return;
 
+  const jumlah = Number(jumlahInput ? jumlahInput.value : NaN);
+  const base = baseInput ? baseInput.value.trim().toUpperCase() : "";
+  const target = targetInput ? targetInput.value.trim().toUpperCase() : "";
+  if (!Number.isFinite(jumlah) || jumlah < 0 || !/^[A-Za-z]{3}$/.test(base) || !/^[A-Za-z]{3}$/.test(target)) {
+    setState("invalid");
+    return;
+  }
+
   setState("loading");
   try {
-    const city = await findCity(name);
-    if (!city) {
-      setState("empty");
-      return;
-    }
-
-    const data = await fetchWeather(city);
-    renderWeather(city, data);
-    renderForecast(data);
+    const data = await getJSON(makeLatestURL(base, [target]));
+    renderRate(base, target, jumlah, data);
     setState("success");
-    rememberCity(city.name);
+    rememberPair(`${base}/${target}`);
   } catch (error) {
-    console.error("Gagal memuat prakiraan cuaca:", error.message);
+    console.error("Gagal memuat data kurs:", error.message);
     setState("error");
   } finally {
     if (button) button.disabled = false;
@@ -208,12 +170,7 @@ async function loadWeather(name) {
 if (form) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = kotaInput ? kotaInput.value.trim() : "";
-    if (name.length < 2) {
-      setState("invalid");
-      return;
-    }
-    loadWeather(name);
+    loadRate();
   });
 }
 

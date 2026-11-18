@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * AUTOMATED TEST HARNESS: SESSION 12 CAPSTONE LAB VERIFICATION
- * Target Files: index.html, styles/main.css, scripts/forecast-helper.js, scripts/next-history.js, scripts/app.js
- * 
- * Verifikasi 10 kriteria evaluasi (100 Poin)
+ * AUTOMATED TEST HARNESS: SESSION 12 MINI CAPSTONE LAB VERIFICATION
+ * Target Files: index.html, styles/main.css, scripts/rate-helper.js, scripts/next-history.js, scripts/app.js
+ *
+ * Verifikasi 18 kriteria evaluasi (100 Poin)
  */
 
 import fs from 'node:fs';
@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename);
 const baseDir = path.resolve(__dirname, '..');
 const htmlFile = path.resolve(baseDir, 'index.html');
 const cssFile = path.resolve(baseDir, 'styles', 'main.css');
-const forecastHelperFile = path.resolve(baseDir, 'scripts', 'forecast-helper.js');
+const rateHelperFile = path.resolve(baseDir, 'scripts', 'rate-helper.js');
 const nextHistoryFile = path.resolve(baseDir, 'scripts', 'next-history.js');
 const appFile = path.resolve(baseDir, 'scripts', 'app.js');
 
@@ -35,59 +35,15 @@ function assert(condition, testName, category = "General") {
   }
 }
 
-// Minimal DOM Simulation
-class MockElement {
-  constructor(tagName = 'div', id = '') {
-    this.tagName = tagName.toUpperCase();
-    this.id = id;
-    this.children = [];
-    this.listeners = {};
-    this._textContent = '';
-    this.value = '';
-    this.disabled = false;
-    this.className = '';
-    this.style = {};
-  }
-
-  get textContent() {
-    if (this.children.length > 0) {
-      return this.children.map(c => c.textContent).join(' ');
-    }
-    return this._textContent;
-  }
-
-  set textContent(val) {
-    this.children = [];
-    this._textContent = String(val);
-  }
-
-  addEventListener(event, fn) {
-    if (!this.listeners[event]) this.listeners[event] = [];
-    this.listeners[event].push(fn);
-  }
-
-  dispatchEvent(event) {
-    const handlers = this.listeners[event.type] || [];
-    for (const h of handlers) h(event);
-  }
-
-  replaceChildren(...nodes) {
-    this.children = [...nodes];
-    this._textContent = '';
-  }
-
-  appendChild(child) {
-    this.children.push(child);
-  }
-}
+const round2 = (n) => Math.round(n * 100) / 100;
 
 async function runTests() {
   console.log("=================================================================");
-  console.log("AUTOMATED TEST HARNESS: SESSION 12 CAPSTONE LAB VERIFICATION");
+  console.log("AUTOMATED TEST HARNESS: SESSION 12 MINI CAPSTONE LAB VERIFICATION");
   console.log(`Base Directory: ${baseDir}`);
   console.log("=================================================================\n");
 
-  const requiredFiles = [htmlFile, cssFile, forecastHelperFile, nextHistoryFile, appFile];
+  const requiredFiles = [htmlFile, cssFile, rateHelperFile, nextHistoryFile, appFile];
   for (const f of requiredFiles) {
     if (!fs.existsSync(f)) {
       console.error(`FATAL: File not found at ${f}`);
@@ -98,35 +54,35 @@ async function runTests() {
   const rawHtml = fs.readFileSync(htmlFile, 'utf8');
   const cleanHtml = rawHtml.replace(/<!--[\s\S]*?-->/g, '');
   const rawCss = fs.readFileSync(cssFile, 'utf8');
-  const rawForecastHelper = fs.readFileSync(forecastHelperFile, 'utf8');
+  const rawRateHelper = fs.readFileSync(rateHelperFile, 'utf8');
   const rawNextHistory = fs.readFileSync(nextHistoryFile, 'utf8');
   const rawApp = fs.readFileSync(appFile, 'utf8');
 
   // SUITE 1: HTML Architecture & Relative Paths
   console.log("[SUITE 1: HTML Architecture & Relative Paths]");
-  const hasForm = /id=["']formCuaca["']/i.test(cleanHtml);
-  const hasForecastContainer = /id=["']forecast["']/i.test(cleanHtml);
-  const hasHistory = /id=["']riwayatKota["']/i.test(cleanHtml);
-  assert(hasForm && hasForecastContainer && hasHistory, "HTML contains #formCuaca, #forecast, and #riwayatKota", "HTML Landmarks");
+  const hasForm = /id=["']formKurs["']/i.test(cleanHtml);
+  const hasResult = /id=["']hasilKurs["']/i.test(cleanHtml);
+  const hasHistory = /id=["']riwayatPair["']/i.test(cleanHtml);
+  assert(hasForm && hasResult && hasHistory, "HTML contains #formKurs, #hasilKurs, and #riwayatPair", "HTML Landmarks");
 
   const hasAbsoluteRoot = /href=["']\/[^\/]/i.test(cleanHtml) || /src=["']\/[^\/]/i.test(cleanHtml);
-  assert(!hasAbsoluteRoot, "HTML uses relative paths (./styles/... and ./scripts/...) for GitHub Pages", "Deployment Path");
+  assert(!hasAbsoluteRoot, "HTML uses relative paths (./styles/... and ./scripts/...) for deployment", "Deployment Path");
 
-  const hasAttribution = /open-meteo/i.test(cleanHtml);
-  assert(hasAttribution, "Mandatory Open-Meteo attribution present", "Attribution");
+  const hasAttribution = /frankfurter/i.test(cleanHtml);
+  assert(hasAttribution, "Mandatory Frankfurter/ECB attribution present", "Attribution");
 
   // SUITE 2: Code Hygiene & Security
   console.log("\n[SUITE 2: Code Hygiene & Security]");
-  const allJs = rawForecastHelper + "\n" + rawNextHistory + "\n" + rawApp;
+  const allJs = rawRateHelper + "\n" + rawNextHistory + "\n" + rawApp;
   const hasVar = /\bvar\s+[a-zA-Z0-9_$]+/.test(allJs);
   assert(!hasVar, "No legacy var keyword used in any script", "Syntax Hygiene");
 
   const usesTextContent = /textContent\s*=/.test(rawApp);
-  const unsafeInnerHTML = /innerHTML\s*=\s*[^;`]*(\${|kota|item|row)/.test(rawApp);
+  const unsafeInnerHTML = /innerHTML\s*=\s*[^;`]*(\${|base|target|item|pair)/.test(rawApp);
   assert(usesTextContent && !unsafeInnerHTML, "DOM updates use textContent safely without innerHTML injection", "XSS Security");
 
-  // SUITE 3: 7-Day Forecast URL Builder
-  console.log("\n[SUITE 3: 7-Day Forecast URL Builder]");
+  // SUITE 3: Latest URL Builder
+  console.log("\n[SUITE 3: Latest URL Builder]");
   const helperSandbox = {
     URL,
     URLSearchParams,
@@ -134,57 +90,62 @@ async function runTests() {
     TypeError,
     Array,
     String,
+    Object,
     console: { log: () => {}, error: () => {} }
   };
   vm.createContext(helperSandbox);
 
   try {
-    vm.runInContext(rawForecastHelper, helperSandbox);
+    vm.runInContext(rawRateHelper, helperSandbox);
   } catch (err) {
-    console.error("Evaluation error in forecast-helper.js:", err.message);
+    console.error("Evaluation error in rate-helper.js:", err.message);
   }
 
-  let urlBuilderOk = false;
-  if (typeof helperSandbox.makeWeatherURL === 'function') {
+  let latestUrlOk = false;
+  let urlValidationOk = false;
+  if (typeof helperSandbox.makeLatestURL === 'function') {
     try {
-      const url = helperSandbox.makeWeatherURL({ latitude: -6.2, longitude: 106.8 });
+      const url = helperSandbox.makeLatestURL("usd", ["idr"]);
       const str = url ? url.toString() : '';
-      urlBuilderOk = str.includes("forecast_days=7") &&
-                     str.includes("daily=") &&
-                     str.includes("timezone=auto");
+      latestUrlOk = str.includes("api.frankfurter.dev/v1/latest") &&
+                    str.includes("base=USD") &&
+                    str.includes("symbols=IDR");
+    } catch {}
+    try {
+      let threw = false;
+      try {
+        helperSandbox.makeLatestURL("US", ["IDR"]);
+      } catch {
+        threw = true;
+      }
+      urlValidationOk = threw;
     } catch {}
   }
-  assert(urlBuilderOk, "makeWeatherURL constructs valid URL with forecast_days=7 and daily parameters", "Forecast URL");
+  assert(latestUrlOk, "makeLatestURL builds uppercase latest URL with base and symbols params", "Latest URL");
+  assert(urlValidationOk, "makeLatestURL throws TypeError on invalid currency code", "Input Validation");
 
-  // SUITE 4: Pure Function toForecastRows
-  console.log("\n[SUITE 4: Pure Function toForecastRows]");
-  let toForecastRowsOk = false;
-  if (typeof helperSandbox.toForecastRows === 'function') {
-    const mockData = {
-      daily: {
-        time: ["2026-11-14", "2026-11-15", "2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19", "2026-11-20"],
-        temperature_2m_max: [33, 32, 31, 30, 32, 33, 34],
-        temperature_2m_min: [24, 23, 23, 23, 24, 24, 25]
-      }
-    };
-    const rows = helperSandbox.toForecastRows(mockData);
-    toForecastRowsOk = Array.isArray(rows) && rows.length === 7 &&
-                       rows[0].date === "2026-11-14" && rows[0].max === 33 && rows[0].min === 24;
+  // SUITE 4: Pure Function describeCurrencyCode
+  console.log("\n[SUITE 4: Pure Function describeCurrencyCode]");
+  let currencyCodeOk = false;
+  if (typeof helperSandbox.describeCurrencyCode === 'function') {
+    try {
+      currencyCodeOk =
+        helperSandbox.describeCurrencyCode("USD") === "Dolar AS" &&
+        helperSandbox.describeCurrencyCode("idr") === "Rupiah" &&
+        helperSandbox.describeCurrencyCode("SGD") === "Dolar Singapura" &&
+        helperSandbox.describeCurrencyCode("JPY") === "Yen Jepang" &&
+        helperSandbox.describeCurrencyCode("XXX") === "Mata uang tidak dikenal";
+    } catch {}
   }
-  assert(toForecastRowsOk, "toForecastRows maps parallel arrays into 7 daily row objects", "Data Transform");
+  assert(currencyCodeOk, "describeCurrencyCode maps ISO codes to Indonesian names (case-insensitive)", "Currency Mapping");
 
-  // SUITE 5: Responsive Auto-Fit CSS Grid
-  console.log("\n[SUITE 5: Responsive Auto-Fit CSS Grid]");
-  const hasGrid = /display\s*:\s*grid/.test(rawCss);
-  const hasAutoFit = /repeat\s*\(\s*auto-fit\s*,\s*minmax\s*\(/i.test(rawCss);
-  assert(hasGrid && hasAutoFit, "CSS defines responsive grid using repeat(auto-fit, minmax(...))", "Responsive CSS");
-
-  // SUITE 6: Pure Function nextHistory & Immutability
-  console.log("\n[SUITE 6: Pure Function nextHistory & Immutability]");
+  // SUITE 5: Pure Function nextHistory & Immutability
+  console.log("\n[SUITE 5: Pure Function nextHistory & Immutability]");
   const historySandbox = {
     Array,
     String,
     Number,
+    Object,
     console: { log: () => {}, error: () => {} }
   };
   vm.createContext(historySandbox);
@@ -193,25 +154,69 @@ async function runTests() {
   } catch {}
 
   let historyOk = false;
+  let historyInvalidOk = false;
   if (typeof historySandbox.nextHistory === 'function') {
-    const initial = ["Surabaya", "Bandung"];
-    const copy = [...initial];
-    const res = historySandbox.nextHistory(initial, "Jakarta", 5);
-    const immutability = initial.length === copy.length && initial[0] === copy[0];
-    historyOk = Array.isArray(res) && res.length === 3 && res[0] === "Jakarta" && immutability;
-  }
-  assert(historyOk, "nextHistory creates unmutated, deduplicated history array with city at index 0", "History Logic");
+    const initial = ["SGD/IDR", "JPY/IDR"];
+    const copy = JSON.stringify(initial);
 
-  // SUITE 7: Double-Request Guard in loadWeather
-  console.log("\n[SUITE 7: Double-Request Guard in loadWeather]");
+    try {
+      const res = historySandbox.nextHistory(initial, "USD/IDR", 5);
+      const immutability = JSON.stringify(initial) === copy;
+      historyOk = Array.isArray(res) && res.length === 3 &&
+        res[0] === "USD/IDR" &&
+        immutability;
+
+      // Deduplikasi case-insensitive
+      const resDup = historySandbox.nextHistory(res, "  sgd/idr ", 5);
+      historyOk = historyOk && resDup.length === 3 && resDup[0] === "SGD/IDR";
+
+      // Batas maksimal
+      const resMax = historySandbox.nextHistory(resDup, "JPY/IDR", 2);
+      historyOk = historyOk && resMax.length === 2;
+    } catch {}
+
+    try {
+      // Invalid entry harus mengembalikan prev apa adanya
+      const bad1 = historySandbox.nextHistory(["SGD/IDR"], "USD-IDR", 5);
+      const bad2 = historySandbox.nextHistory(["SGD/IDR"], 12345, 5);
+      const bad3 = historySandbox.nextHistory(["SGD/IDR"], "US/IDR", 5);
+      historyInvalidOk = Array.isArray(bad1) && bad1.length === 1 &&
+        Array.isArray(bad2) && bad2.length === 1 &&
+        Array.isArray(bad3) && bad3.length === 1;
+    } catch {}
+  }
+  assert(historyOk, "nextHistory dedupes pair strings case-insensitively, uppercases, puts entry at index 0, respects max, no mutation", "History Logic");
+  assert(historyInvalidOk, "nextHistory returns prev unchanged for invalid entries (wrong separator, non-string, short code)", "Input Validation");
+
+  // SUITE 6: Responsive Styling
+  console.log("\n[SUITE 6: Responsive Styling]");
+  const hasBoxSizing = /box-sizing\s*:\s*border-box/.test(rawCss);
+  const hasFlexOrGrid = /(display\s*:\s*(flex|grid))/.test(rawCss);
+  assert(hasBoxSizing && hasFlexOrGrid, "CSS defines box-sizing reset and flex/grid layout", "Responsive CSS");
+
+  // SUITE 7: Double-Request Guard in loadRate
+  console.log("\n[SUITE 7: Double-Request Guard in loadRate]");
   const cleanApp = rawApp.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
   const hasGuard = /if\s*\(\s*(button\s*&&\s*)?button\.disabled\s*\)\s*return/.test(cleanApp);
-  assert(hasGuard, "loadWeather contains double-request fail-fast guard 'if (button.disabled) return;'", "Race Condition");
+  assert(hasGuard, "loadRate contains double-request fail-fast guard 'if (button.disabled) return;'", "Race Condition");
 
-  // SUITE 8: Forecast Card DOM Rendering
-  console.log("\n[SUITE 8: Forecast Card DOM Rendering]");
-  const hasForecastRenderer = /function\s+renderForecast\s*\(/.test(cleanApp);
-  assert(hasForecastRenderer, "renderForecast function exists to populate #forecast list items", "Forecast Renderer");
+  const hasFinally = /finally/.test(cleanApp);
+  assert(hasFinally, "loadRate re-enables the submit button inside a finally block", "Race Condition");
+
+  // SUITE 8: Input Validation & Error States
+  console.log("\n[SUITE 8: Input Validation & Error States]");
+  const validatesInput = /invalid/.test(cleanApp) && /test\(/.test(cleanApp);
+  assert(validatesInput, "app.js validates amount and 3-letter codes before any fetch (invalid state)", "Input Validation");
+
+  const handlesEmptyState = /empty/.test(cleanApp);
+  const handlesHttpError = /response\.ok|HTTP/.test(cleanApp);
+  assert(handlesEmptyState && handlesHttpError, "app.js distinguishes empty result and HTTP errors with dedicated states", "Error Handling");
+
+  // SUITE 9: localStorage History Wiring
+  console.log("\n[SUITE 9: localStorage History Wiring]");
+  const hasStorageKey = /STORAGE_KEY/.test(cleanApp) && /JSON\.stringify/.test(cleanApp);
+  const hasRerender = /renderHistory\s*\(/.test(cleanApp);
+  assert(hasStorageKey && hasRerender, "app.js persists history via JSON.stringify and re-renders the chip list", "Storage");
 
   console.log("\n=================================================================");
   const percentage = Math.round((passedTests / totalTests) * 100);

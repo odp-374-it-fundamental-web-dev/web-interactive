@@ -77,10 +77,10 @@ export const CurriculumRoadmap: React.FC<CurriculumRoadmapProps> = ({
       badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
       description: 'Mengintegrasikan REST API publik secara asinkron dengan status UI lengkap, persistensi aman di localStorage, debugging terstruktur DevTools, unit testing assertion, dan rilis publik ke GitHub Pages.',
       deliverables: [
-        'Integrasi 2-Tahap Open-Meteo API (Geocoding + Forecast)',
-        'Penyimpanan Riwayat 5 Kota di LocalStorage',
-        'Pengujian Fungsi Murni Berbasis console.assert()',
-        'Capstone Mini Project 7 Hari & Rilis GitHub Pages'
+        'Integrasi REST API Frankfurter Kurs Referensi ECB',
+        'Penyimpanan Riwayat 5 Pasangan Valuta di LocalStorage',
+        'Pengujian Otomatis Test Harness (16/16 Checks Passed)',
+        'Capstone Mini Project Kalkulator Kurs Rupiah & Rilis Daring'
       ]
     }
   ];
@@ -117,9 +117,9 @@ export const CurriculumRoadmap: React.FC<CurriculumRoadmapProps> = ({
     {
       step: '05',
       session: 'Sesi 12',
-      title: 'Milestone 5: Debugging, Assertions & GitHub Pages',
-      desc: 'Prakiraan cuaca 7 hari lengkap, validasi fungsi murni via console.assert(), audit jalur subpath (./), dan publikasi langsung ke GitHub Pages.',
-      tags: ['console.assert()', 'DevTools', 'GitHub Pages', 'Rubrik 100 Poin']
+      title: 'Milestone 5: Mini Capstone Kalkulator Kurs Rupiah',
+      desc: 'Konversi kurs real-time Frankfurter API, pure functions helper, double-request guard, test-runner 16 checks, dan deployment live.',
+      tags: ['Frankfurter API', 'Double-Request Guard', 'Test Harness', 'Rubrik 100 Poin']
     }
   ];
 
@@ -170,7 +170,7 @@ export const CurriculumRoadmap: React.FC<CurriculumRoadmapProps> = ({
               <p className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                 Kurikulum terstruktur berbasis proyek perbankan: 42 jam tatap muka intensif, 24 modul latihan kode 
                 (1-starter & 2-solution), validasi test harness otomatis, dan mini project 
-                <strong className="text-slate-900 font-semibold"> Weather Web App</strong> siap rilis ke GitHub Pages.
+                <strong className="text-slate-900 font-semibold"> Kalkulator Kurs Rupiah</strong> siap rilis ke Vercel atau GitHub Pages.
               </p>
             </div>
           </div>

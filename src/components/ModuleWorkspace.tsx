@@ -90,7 +90,7 @@ export const ModuleWorkspace: React.FC<ModuleWorkspaceProps> = ({
               <Award className="w-3.5 h-3.5 text-amber-300" />
             </div>
             <div>
-              <span className="font-bold font-worksans text-white">Mini Capstone Project: Weather Web App</span>
+              <span className="font-bold font-worksans text-white">Mini Capstone Project: Kalkulator Kurs Rupiah</span>
               <span className="text-slate-300 ml-2 hidden sm:inline text-[11px]">— Standar Penilaian Software Engineer BNI ODP IT 2026</span>
             </div>
           </div>
